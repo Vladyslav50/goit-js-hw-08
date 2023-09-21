@@ -22,7 +22,7 @@ function loadFormState() {
     emailInput.value = savedFormData.email || '';
     messageTextarea.value = savedFormData.message || '';
   } else {
-    // Додайте значення 0, якщо даних немає
+    // Додайте значення 0, якщо даних немає//
     emailInput.value = savedFormData.email || '0';
     messageTextarea.value = savedFormData.message || '0';
   }

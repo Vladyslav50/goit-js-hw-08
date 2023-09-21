@@ -21,6 +21,10 @@ function loadFormState() {
   if (savedFormData) {
     emailInput.value = savedFormData.email || '';
     messageTextarea.value = savedFormData.message || '';
+  } else {
+    // Додайте значення 0, якщо даних немає
+    emailInput.value = savedFormData.email || '0';
+    messageTextarea.value = savedFormData.message || '0';
   }
 }
 
@@ -40,6 +44,12 @@ form.addEventListener('submit', function (event) {
     email: emailInput.value,
     message: messageTextarea.value,
   };
+
+  // Перевірка на заповненість обох полів
+  if (!formData.email || !formData.message) {
+    alert('Будь ласка, заповніть обидва поля форми.');
+    return; // Перервемо відправку форми, якщо одне з полів не заповнене
+  }
 
   // Виведіть об'єкт з даними у консоль
   console.log(formData);
